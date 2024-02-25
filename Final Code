@@ -1,0 +1,25 @@
+// Analog pin connected to the force sensor
+const int forceSensorPin = A0; 
+
+// PWM pin connected to the vibration motor 
+const int vibrationMotorPin = 3;  
+
+void setup() {
+  Serial.begin(9600);  
+  pinMode(vibrationMotorPin, OUTPUT); 
+}
+
+void loop() {
+  int sensorValue = analogRead(forceSensorPin);  
+  int motorIntensity = map(sensorValue, 0, 1023, 0, 255);  
+
+  analogWrite(vibrationMotorPin, motorIntensity);  
+
+
+// this part is for checking code in the 'serial monitor window'
+  Serial.print("Force Sensor Value: ");
+  Serial.print(sensorValue);
+  Serial.print("   Motor Intensity: ");
+  Serial.println(motorIntensity);
+  delay(100);  
+}
