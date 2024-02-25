@@ -1,0 +1,21 @@
+// Define the pin to which the vibration motor is connected
+const int motorPin = 9; // Change this to the pin you're using
+
+void setup() {
+  // Set the motor pin as an output
+  pinMode(motorPin, OUTPUT);
+}
+
+void loop() {
+  // Turn on the vibration motor
+  digitalWrite(motorPin, HIGH);
+  
+  // Wait for a short duration
+  delay(1000); // Adjust the delay as needed
+  
+  // Turn off the vibration motor
+  digitalWrite(motorPin, LOW);
+  
+  // Wait for some time before repeating
+  delay(400); // Adjust the delay as needed
+}
